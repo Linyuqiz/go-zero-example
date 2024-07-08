@@ -1,0 +1,19 @@
+services:
+  etcd:
+    image: bitnami/etcd:latest
+    container_name: etcd-server
+    ports:
+      - "2379:2379"
+      - "2380:2380"
+    environment:
+      - TZ=Asia/Shanghai
+      - ETCD_NAME=etcd0
+      - ETCD_DATA_DIR=/etcd-data
+      - ALLOW_NONE_AUTHENTICATION=yes
+      - ETCD_ADVERTISE_CLIENT_URLS=http://0.0.0.0:2379
+      - ETCD_LISTEN_CLIENT_URLS=http://0.0.0.0:2379
+      - ETCD_INITIAL_ADVERTISE_PEER_URLS=http://0.0.0.0:2380
+      - ETCD_LISTEN_PEER_URLS=http://0.0.0.0:2380
+      - ETCD_INITIAL_CLUSTER=etcd0=http://0.0.0.0:2380
+      - ETCD_INITIAL_CLUSTER_TOKEN=etcd-cluster-1
+      - ETCD_INITIAL_CLUSTER_STATE=new

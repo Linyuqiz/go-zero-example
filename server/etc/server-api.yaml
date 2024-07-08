@@ -1,0 +1,14 @@
+Name: server-api
+Host: 0.0.0.0
+Port: 8888
+
+ExampleZRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: zrpc.example
+HelloZRpc:
+  Etcd:
+    Hosts:
+      - 127.0.0.1:2379
+    Key: zrpc.hello

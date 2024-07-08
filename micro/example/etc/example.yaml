@@ -1,0 +1,6 @@
+Name: zrpc.example
+ListenOn: 0.0.0.0:18081
+Etcd:
+  Hosts:
+    - 127.0.0.1:2379
+  Key: zrpc.example

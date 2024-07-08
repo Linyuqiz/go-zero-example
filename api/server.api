@@ -1,0 +1,26 @@
+syntax = "v1"
+
+info (
+	title: "go-zero-example"
+	desc:  "go-zero example"
+)
+
+import "example/example.api"
+import "hello/hello.api"
+
+type (
+	PingRequest  {}
+	PingResponse {
+		Msg string `json:"msg"`
+	}
+)
+
+@server (
+	group:  ping
+	prefix: /api/v1/ping
+)
+service server-api {
+	@handler GetPing
+	get / (PingRequest) returns (PingResponse)
+}
+

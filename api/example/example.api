@@ -1,0 +1,16 @@
+type (
+	ExampleRequest  {}
+	ExampleResponse {
+		Msg string `json:"msg"`
+	}
+)
+
+@server (
+	group:  example
+	prefix: /api/v1/example
+)
+service server-api {
+	@handler GetExample
+	get / (ExampleRequest) returns (ExampleResponse)
+}
+

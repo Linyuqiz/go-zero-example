@@ -1,0 +1,16 @@
+type (
+	HelloRequest  {}
+	HelloResponse {
+		Msg string `json:"msg"`
+	}
+)
+
+@server (
+	group:  hello
+	prefix: /api/v1/hello
+)
+service server-api {
+	@handler GetHello
+	get / (HelloRequest) returns (HelloResponse)
+}
+
